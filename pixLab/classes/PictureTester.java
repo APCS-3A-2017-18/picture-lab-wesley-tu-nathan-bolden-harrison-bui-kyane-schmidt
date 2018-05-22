@@ -51,6 +51,76 @@ public class PictureTester
     swan.explore();
   }
   
+  public void mirrorVerticalRightToLeft(){
+  Pixel[][] pixels = this.getPixels2D();
+  Pixel leftPixel = null;
+  Pixel rightPixel = null;
+  int width = pixels[0].length;
+  for (int row = 0; row < pixels.length; row++)
+  {
+    for (int col = 0; col < width / 2; col++){
+       leftPixel = pixels[row][col];
+       rightPixel = pixels[row][width – 1 - col];
+       leftPixel.setColor(rightPixel.getColor());
+    }
+  }
+} 
+
+
+
+public void mirrorHorizontal(){
+  Pixel[][] pixels = this.getPixels2D();
+  Pixel topPixel = null;
+  Pixel bottomPixel = null;
+  int height = pixels.length;
+  for (int col = 0; col < pixels[0].length; col++){
+    for (int row = 0; row < height/2; row++)
+    {
+      topPixel = pixels[row][col];
+      bottomPixel = pixels[height-1-row][col];
+      bottomPixel.setColor(topPixel.getColor());
+    }
+  }
+}
+
+
+public void mirrorHorizontal(){
+  Pixel[][] pixels = this.getPixels2D();
+  Pixel topPixel = null;
+  Pixel bottomPixel = null;
+  int height = pixels.length;
+  for (int col = 0; col < pixels[0].length; col++){
+    for (int row = 0; row < height/2; row++)
+    {
+      topPixel = pixels[row][col];
+      bottomPixel = pixels[height-1-row][col];
+      topPixel.setColor(bottomPixel.getColor());
+    }
+  }
+}
+
+
+ public void mirrorDiagonal() // mirrors from top right to bottom left
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topRightPixel = null;
+      Pixel bottomLeftPixel = null;
+      int maxLength;
+      if (pixels.length < pixels[0].length) { maxLength = pixels.length; }
+      else {maxLength = pixels[0].length; }
+      
+      for (int row = 0; row < maxLength; row++)
+      {
+          for (int col = row; col < maxLength; col++)
+          {
+              topRightPixel = pixels[row][col];
+              bottomLeftPixel = pixels[col][row];
+              bottomLeftPixel.setColor(topRightPixel.getColor());
+          }
+      }
+  }
+
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
