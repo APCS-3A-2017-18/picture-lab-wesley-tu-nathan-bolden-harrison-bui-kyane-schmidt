@@ -60,7 +60,7 @@ public class PictureTester
   {
     for (int col = 0; col < width / 2; col++){
        leftPixel = pixels[row][col];
-       rightPixel = pixels[row][width – 1 - col];
+       rightPixel = pixels[row][width - 1 - col];
        leftPixel.setColor(rightPixel.getColor());
     }
   }
